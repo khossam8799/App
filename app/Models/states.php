@@ -7,9 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class states extends Model
 {
-    public function states()
-    {
-        return $this->hasMany(cities:class)
-    }
+    
     use HasFactory;
+
+    return $this->hasMany(cities:class);
 }

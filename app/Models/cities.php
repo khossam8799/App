@@ -9,8 +9,6 @@ class cities extends Model
 {
     use HasFactory;
 
-    public function cities()
-    {
-        return $this->hasMany(areas:class)
-    }
+    return $this->hasMany(areas:class);
+
 }
