@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class areas extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'name',
+    ];
+
+    public function city()
+    {
+        return $this->belongsTo('App\Models\City');
+    }
 }
