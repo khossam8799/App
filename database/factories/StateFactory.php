@@ -3,7 +3,6 @@
 namespace Database\Factories;
 
 use App\Models\State;
-use App\Models\states;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class StateFactory extends Factory
