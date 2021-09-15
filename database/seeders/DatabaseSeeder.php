@@ -18,8 +18,13 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
         // reference to your factories
 
-        \App\Models\State::factory(10)->create();
-        \App\Models\City::factory(10)->create();
-        \App\Models\Area::factory(10)->create();
+       // \App\Models\State::factory(10)->create();
+      //  \App\Models\City::factory(10)->create();
+      //  \App\Models\Area::factory(10)->create();
+      $this->call([
+        StateSeeder::class,
+        CitySeeder::class,
+        AreaSeeder::class,
+    ]);
     }
 }
