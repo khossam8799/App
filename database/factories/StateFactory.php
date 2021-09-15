@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
+use App\Models\states;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Models\State;
 
-class StateFactory extends Factory
+class StatesFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = State::class;
+    protected $model = states::class;
 
     /**
      * Define the model's default state.
