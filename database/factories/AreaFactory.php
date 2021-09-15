@@ -3,8 +3,8 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\City;
 use App\Models\Area;
-
 
 class AreaFactory extends Factory
 {
@@ -13,7 +13,7 @@ class AreaFactory extends Factory
      *
      * @var string
      */
-    protected $model = areas::class;
+    protected $model = Area::class;
 
     /**
      * Define the model's default state.
@@ -22,10 +22,10 @@ class AreaFactory extends Factory
      */
     public function definition()
     {
-        $statesIds= City::table('states')->select('id')->get();
+        $citiesIds= City::table('cities')->select('id')->get();
         return [
             'name' => $this->faker->name(),
-            'state_id'=> $this->faker->randomElement($statesIds)->id
+            'state_id'=> $this->faker->randomElement($citiesIds)->id
         ];
     }
 }

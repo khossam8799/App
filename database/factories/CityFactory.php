@@ -2,17 +2,18 @@
 
 namespace Database\Factories;
 
-use App\Models\cities;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\city;
+use App\Models\State;
 
-class CitiesFactory extends Factory
+class CityFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = cities::class;
+    protected $model = City::class;
 
     /**
      * Define the model's default state.
@@ -21,8 +22,10 @@ class CitiesFactory extends Factory
      */
     public function definition()
     {
+        $statesIds= State::table('states')->select('id')->get();
         return [
             'name' => $this->faker->name(),
+            'state_id'=> $this->faker->randomElement($statesIds)->id
         ];
     }
 }

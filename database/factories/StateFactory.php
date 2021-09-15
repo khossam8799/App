@@ -2,8 +2,8 @@
 
 namespace Database\Factories;
 
-use App\Models\states;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\State;
 
 class StatesFactory extends Factory
 {
@@ -12,7 +12,7 @@ class StatesFactory extends Factory
      *
      * @var string
      */
-    protected $model = states::class;
+    protected $model = State::class;
 
     /**
      * Define the model's default state.
