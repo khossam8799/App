@@ -25,7 +25,7 @@ class AreaFactory extends Factory
         $citiesIds= City::table('cities')->select('id')->get();
         return [
             'name' => $this->faker->name(),
-            'state_id'=> $this->faker->randomElement($citiesIds)->id
+            'areaId'=> $this->faker->randomElement($citiesIds)->id
         ];
     }
 }
