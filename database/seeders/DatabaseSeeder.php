@@ -17,7 +17,9 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         // reference to your factories
-State::factory(10)->create();
 
+        \App\Models\State::factory(10)->create();
+        \App\Models\City::factory(10)->create();
+        \App\Models\Area::factory(10)->create();
     }
 }
