@@ -25,7 +25,7 @@ class CityFactory extends Factory
         $statesIds= State::table('states')->select('id')->get();
         return [
             'name' => $this->faker->name(),
-            'stateId'=> $this->faker->randomElement($statesIds)->id
+            'stateId'=> $this->faker->randomElement($statesIds)->id,
         ];
     }
 }
