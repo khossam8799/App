@@ -22,10 +22,9 @@ class AreaFactory extends Factory
      */
     public function definition()
     {
-        $citiesIds= City::table('cities')->select('id')->get();
         return [
             'name' => $this->faker->name(),
-            'areaId'=> $this->faker->randomElement($citiesIds)->id,
+            'cityId' => City::inRandomOrder()->value('id')
         ];
     }
 }

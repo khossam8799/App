@@ -2,9 +2,11 @@
 
 namespace Database\Seeders;
 
-use Database\Factories\StatesFactory;
 use Illuminate\Database\Seeder;
 use App\Models\State;
+use App\Models\City;
+use App\Models\Area;
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,14 +20,22 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
         // reference to your factories
 
-       // \App\Models\State::factory(10)->create();
-      //  \App\Models\City::factory(10)->create();
-      //  \App\Models\Area::factory(10)->create();
+        State::factory()
+        ->count(1)
+        ->create();
 
-      $this->call([
+        City::factory()
+        ->count(1)
+        ->create();
+
+        Area::factory()
+        ->count(1)
+        ->create();
+
+     /* $this->call([
         StateSeeder::class,
         CitySeeder::class,
         AreaSeeder::class
-     ]);
+     ]);*/
     }
 }
