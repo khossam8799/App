@@ -18,9 +18,9 @@ class CreateAddressesTable extends Migration
             $table->id();
             $table->string('street');
             $table->string('building');
-            $table->unsignedBigInteger('floor');
-            $table->unsignedBigInteger('apartment');
-            $table->string('landmark');
+            $table->unsignedInteger('floor')->nullable();
+            $table->unsignedInteger('apartment')->nullable();
+            $table->string('landmark')->nullable();
             $table->timestamps();
             $table->unsignedBigInteger('areaId');
 
