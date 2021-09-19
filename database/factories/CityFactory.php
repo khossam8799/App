@@ -2,17 +2,18 @@
 
 namespace Database\Factories;
 
-use App\Models\areas;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\city;
+use App\Models\State;
 
-class AreasFactory extends Factory
+class CityFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = areas::class;
+    protected $model = City::class;
 
     /**
      * Define the model's default state.
@@ -23,6 +24,7 @@ class AreasFactory extends Factory
     {
         return [
             'name' => $this->faker->name(),
+            'stateId' => State::inRandomOrder()->value('id')
         ];
     }
 }
