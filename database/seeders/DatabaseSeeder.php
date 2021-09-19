@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Address;
 use Illuminate\Database\Seeder;
 use App\Models\State;
 use App\Models\City;
@@ -21,14 +22,18 @@ class DatabaseSeeder extends Seeder
         // reference to your factories
 
         State::factory()
-        ->count(4)
+        ->count(2)
         ->create();
 
         City::factory()
-        ->count(8)
+        ->count(4)
         ->create();
 
         Area::factory()
+        ->count(8)
+        ->create();
+
+        Address::factory()
         ->count(12)
         ->create();
 
