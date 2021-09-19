@@ -18,13 +18,13 @@ class CreateAddressesTable extends Migration
             $table->id();
             $table->string('street');
             $table->string('building');
-            $table->unsignedInteger('floor');
-            $table->unsignedInteger('apartment');
+            $table->unsignedBigInteger('floor');
+            $table->unsignedBigInteger('apartment');
             $table->string('landmark');
             $table->timestamps();
             $table->unsignedBigInteger('areaId');
 
-            $table->foreign('areaId')->references('id')->on('areas');
+            $table->foreign('areaId')->references('id')->on('');
         });
     }
 
