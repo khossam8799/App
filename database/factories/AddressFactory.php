@@ -25,8 +25,8 @@ class AddressFactory extends Factory
         return [
             'street' => $this->faker->name(),
             'building'=> $this->faker->name(),
-            'floor'=> $this->faker->unsigndIntger(),
-            'apartment'=> $this->faker->unsigndIntger(),
+            'floor'=> $this->faker->randomNumber(),
+            'apartment'=> $this->faker->randomNumber(),
             'street' => $this->faker->name(),
             'areaId' => Area::inRandomOrder()->value('id')
         ];
