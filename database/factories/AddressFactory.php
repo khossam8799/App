@@ -27,7 +27,7 @@ class AddressFactory extends Factory
             'building'=> $this->faker->word(),
             'floor'=> $this->faker->randomNumber(),
             'apartment'=> $this->faker->randomNumber(),
-            'landmark' => $this->faker->Str::random(10),
+            'landmark' => $this->faker->word(),
             'areaId' => Area::inRandomOrder()->value('id')
         ];
     }
