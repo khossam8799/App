@@ -4,14 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use phpDocumentor\Reflection\DocBlock\Tags\Factory\StaticMethod;
 
-class city extends Model
+class City extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'name', 'StateId'
+        'name', 'stateId'
     ];
 
     public function areas()
