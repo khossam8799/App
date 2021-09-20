@@ -16,19 +16,6 @@ class AddhasAdressesSeeder extends Seeder
      */
     public function run()
     {
-       /**$addressesAreasIds=Address::select('areaId')->get();
-         $areas=Area::get();
-
-       foreach ($areas as $area){
-            $areaId=
-            $exists=Address::exists($addressesAreasIds,$area);
-            if($exists)
-            DB::table('areas')->update([
-                'hasAddresses' => true
-            ]);
-        }
-        **/
-
         $addressesAreasIds=Address::select('areaId')->get();
 
         DB::table('areas')
