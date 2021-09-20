@@ -29,18 +29,13 @@ class DatabaseSeeder extends Seeder
         ->count(5)
         ->create();
 
-        Address::factory()
-        ->count(15)
-        ->create();
-
         Area::factory()
         ->count(10)
         ->create();
 
-     /* $this->call([
-        StateSeeder::class,
-        CitySeeder::class,
-        AreaSeeder::class
-     ]);*/
+        Address::factory()
+        ->count(5)
+        ->create();
+
     }
 }

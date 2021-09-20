@@ -15,7 +15,7 @@ class CitySeeder extends Seeder
     public function run()
     {
         City::factory()
-        ->count(10)
+        ->count(5)
         ->create();
     }
 }

@@ -25,7 +25,7 @@ class AreaFactory extends Factory
     {
         return [
             'name' => $this->faker->word(),
-            'cityId' =>  $this->faker->numberBetween(1,5)
+            'cityId' => City::inRandomOrder()->value('id')
         ];
     }
 }

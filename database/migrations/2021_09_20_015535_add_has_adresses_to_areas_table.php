@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAreasTable extends Migration
+class AddHasAdressesToAreasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,8 @@ class CreateAreasTable extends Migration
      */
     public function up()
     {
-        Schema::create('areas', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->timestamps();
-            $table->unsignedBigInteger('cityId');
-
-            $table->foreign('cityId')->references('id')->on('cities');
+        Schema::table('areas', function (Blueprint $table) {
+            $table->boolean('hasAddresses')->default(false);
         });
     }
 
@@ -30,6 +25,8 @@ class CreateAreasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('areas');
+        Schema::table('areas', function (Blueprint $table) {
+           // $table->dropColumn('hasAddresses');
+        });
     }
 }
