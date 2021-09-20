@@ -18,6 +18,7 @@ class CreateAreasTable extends Migration
             $table->string('name');
             $table->timestamps();
             $table->unsignedBigInteger('cityId');
+     //     $table->boolean('hasAddresses');
 
             $table->foreign('cityId')->references('id')->on('cities');
         });

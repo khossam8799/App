@@ -22,19 +22,19 @@ class DatabaseSeeder extends Seeder
         // reference to your factories
 
         State::factory()
-        ->count(2)
+        ->count(3)
         ->create();
 
         City::factory()
-        ->count(4)
-        ->create();
-
-        Area::factory()
-        ->count(8)
+        ->count(5)
         ->create();
 
         Address::factory()
-        ->count(12)
+        ->count(15)
+        ->create();
+
+        Area::factory()
+        ->count(10)
         ->create();
 
      /* $this->call([
