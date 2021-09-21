@@ -10,7 +10,7 @@ class Area extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name', 'cityId'
+        'name', 'cityId' , 'hasAddresses'
     ];
 
     public function city()

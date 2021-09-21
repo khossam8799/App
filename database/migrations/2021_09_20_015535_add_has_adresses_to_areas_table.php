@@ -26,7 +26,7 @@ class AddHasAdressesToAreasTable extends Migration
     public function down()
     {
         Schema::table('areas', function (Blueprint $table) {
-           // $table->dropColumn('hasAddresses');
+            $table->dropColumn('hasAddresses');
         });
     }
 }
