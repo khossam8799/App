@@ -40,13 +40,12 @@ class hasAddressesUpdate extends Command
     public function handle()
     {
        $addressesAreasIds=Address::select('areaId')->distinct()->get();
+       $plucked=$addressesAreasIds->pluck('areaId');
 
-       foreach($addressesAreasIds as $addressesAreasId){
-
-        Area::where('id', $addressesAreasId->areaId)
+        Area::whereIn('id', $plucked)
         ->update([
             'hasAddresses'=>true
         ]);
-       }
+
     }
 }
