@@ -9,7 +9,7 @@ use app\Models\Area;
 class CityController extends Controller
 {
     public function store(Request $request){
-        $city=City::where('name',$request->input('name'))->first();
+        $city=City::where('name','=',$request->input('name'))->first();
         if(isset($city)){
             return response()->json(['message'=>'City already exists',200]);
         }
@@ -20,7 +20,6 @@ class CityController extends Controller
     }
 
     public function update(Request $request,$id){
-
         $city=City::find($id);
         if(isset($city)){
             $city->update($request->all());
@@ -33,7 +32,6 @@ class CityController extends Controller
     }
 
     public function delete(Request $request,$id){
-
         $city=City::find($id);
         if(isset($city)){
             $areascitiesIds=City::select('cityId')->distinct()->get()->pluck('cityId');
