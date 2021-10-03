@@ -3,13 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use app\Models\State;
-use app\Models\City ;
+use App\Models\State;
+use App\Models\City;
 
 class StateController extends Controller
 {
     public function store(Request $request){
-
         $state=State::where('name','=',$request->input('name'))->first();
         if(isset($state)){
             return response()->json(['message'=>'State already exists',200]);
@@ -21,7 +20,6 @@ class StateController extends Controller
     }
 
     public function update(Request $request,$id){
-
         $state=State::find($id);
         if(isset($state)){
             $state->update($request->all());
@@ -34,7 +32,6 @@ class StateController extends Controller
     }
 
     public function delete($id){
-
         $state=State::find($id);
         if(isset($state)){
             $citiesStatesIds=City::select('stateId')->distinct()->get()->pluck('stateId');
