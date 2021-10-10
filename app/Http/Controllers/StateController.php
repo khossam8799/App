@@ -9,15 +9,14 @@ use App\Models\City;
 class StateController extends Controller
 {
     public function store(Request $request){
-        $request->validate(['name' => 'required|unique:states']);
-
+        $request->validate(['name' => 'required']);
         $state=State::where('name','=',$request->input('name'))->first();
         if(isset($state)){
             return response()->json(['message'=>'State already exists'],200);
         }
         else{
             State::create($request->all());
-            return response()->json(['message'=>'State created Successfully'],201);
+            return response()->json(['message'=>'State created Successfully'],200);
         }
     }
 

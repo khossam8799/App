@@ -9,19 +9,19 @@ use App\Models\Area;
 class CityController extends Controller
 {
     public function store(Request $request){
-        $request->validate(['name' => 'required|unique:cities']);
+        $request->validate(['name' => 'required']);
         $city=City::where('name','=',$request->input('name'))->first();
         if(isset($city)){
             return response()->json(['message'=>'City already exists'],200);
         }
         else{
             City::create($request->all());
-            return response()->json(['message'=>'City created Successfully'],201);
+            return response()->json(['message'=>'City created Successfully'],200);
         }
     }
 
     public function update(Request $request,$id){
-        $request->validate(['name' => 'required|unique:cities']);
+        $request->validate(['name' => 'required|unique:cities', 'stateId'=>'required']);
         $city=City::find($id);
         if(isset($city)){
             $city->name=$request->name;
