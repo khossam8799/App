@@ -16,8 +16,6 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::apiResource('states', StateController::class);
-Route::apiResource('cities',CityController::class);
 
 Route::post('states',[StateController::class,'store']);
 Route::put('states/{id}',[StateController::class,'update']);
