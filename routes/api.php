@@ -18,14 +18,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('states',[StateController::class,'store']);
-Route::put('states/{id}',[StateController::class,'update']);
-Route::delete('states/{id}', [StateController::class,'delete']);
+Route::put('states',[StateController::class,'update']);
+Route::delete('states',[StateController::class,'delete']);
 Route::get('states',[StateController::class , 'count']);
 
 Route::post('cities', [CityController::class ,'store']);
-Route::put('cities/{id}',[CityController::class, 'update']);
-Route::delete('cities/{id}', [CityController::class ,'delete']);
-Route::get('cities/{id}',[CityController::class , 'countCitiesOfState']);
+Route::put('cities',[CityController::class, 'update']);
+Route::delete('cities', [CityController::class ,'delete']);
+Route::get('cities',[CityController::class , 'countCitiesOfState']);
 
 
 
