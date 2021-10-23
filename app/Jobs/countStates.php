@@ -10,6 +10,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use App\Models\City;
 use App\Models\Area;
+use App\Models\State;
 use Illuminate\Support\Facades\Log;
 
 
@@ -33,12 +34,15 @@ class countStates implements ShouldQueue
      *
      * @return void
      */
-    public function handle($stateId)
+    public function handle()
     {
-        $statecitiesIds=City::where('stateId',$stateId)->pluck('id')->toArray();
-        $citiesAreasIds=Area::whereIn('cityId',$statecitiesIds)->pluck('id')->toArray();
-
-        Log::info('State had '.count($statecitiesIds).' cities and ' .count($citiesAreasIds) .' areas' );
+        $statesIds=State::pluck('id')->toArray();
+        foreach($statesIds as $stateId){
+            $statecitiesIds=City::where('stateId',$stateId)->pluck('id')->toArray();
+            $citiesAreasIds=Area::whereIn('cityId',$statecitiesIds)->pluck('id')->toArray();
+            $stateName=State::where('id',$stateId)->value('name');
+            Log::info($stateName.' had '.count($statecitiesIds).' cities and ' .count($citiesAreasIds) .' areas' );
+        }
 
     }
 }
