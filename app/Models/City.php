@@ -15,11 +15,11 @@ class City extends Model
 
     public function areas()
     {
-        return $this->hasMany(Area::class);
+        return $this->hasMany(Area::class,'cityId');
     }
 
     public function state()
     {
-        return $this->belongsTo(State::class);
+        return $this->belongsTo(State::class,'stateId');
     }
 }

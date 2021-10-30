@@ -3,19 +3,16 @@
 namespace App\Jobs;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
-use App\Models\City;
-use App\Models\Area;
 use App\Models\State;
 use Illuminate\Support\Facades\Log;
 
 
 
-class countStates implements ShouldQueue
+class CountStates implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
@@ -36,13 +33,9 @@ class countStates implements ShouldQueue
      */
     public function handle()
     {
-        $statesIds=State::pluck('id')->toArray();
-        foreach($statesIds as $stateId){
-            $statecitiesIds=City::where('stateId',$stateId)->pluck('id')->toArray();
-            $citiesAreasIds=Area::whereIn('cityId',$statecitiesIds)->pluck('id')->toArray();
-            $stateName=State::where('id',$stateId)->value('name');
-            Log::info($stateName.' had '.count($statecitiesIds).' cities and ' .count($citiesAreasIds) .' areas' );
+        $states= State::select('name')->withCount('cities')->withCount('areas')->get();
+        foreach($states as $state){
+            Log::info($state->name.' state has '.$state->cities_count. ' city and '.$state->areas_count. ' area.');
         }
-
     }
 }
