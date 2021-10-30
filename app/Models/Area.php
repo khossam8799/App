@@ -20,6 +20,6 @@ class Area extends Model
 
     public function addresses()
     {
-        return $this->hasMany(Address::class);
+        return $this->hasMany(Address::class, 'areaId');
     }
 }
