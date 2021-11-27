@@ -15,7 +15,11 @@ class State extends Model
 
     public function cities()
     {
-        return $this->hasMany(City::class);
+        return $this->hasMany(City::class, 'stateId');
+    }
+
+    public function areas(){
+        return $this->hasManyThrough(Area::class, City::class, 'stateId', 'cityId');
     }
 
 }
